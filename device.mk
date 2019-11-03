@@ -22,10 +22,19 @@
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/oneplus/oneplust7t/prebuilt/system,system)
+    $(call find-copy-subdir-files,*,device/oneplus/oneplus7t/prebuilt/system,system)
 
-# common oneplus6
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/oneplus/oneplus7pro/prebuilt/product,product) \
+    $(call find-copy-subdir-files,*,device/oneplus/oneplus7pro/prebuilt/root,recovery/root)
+
+PRODUCT_COPY_FILES += \
+    device/oneplus/oneplus7t/fstab.qcom:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.qcom
+
 $(call inherit-product, device/oneplus/oneplus7pro/device.mk)
+
+AB_OTA_PARTITIONS += \
+    product
 
 PRODUCT_PACKAGES += \
     libinit_oneplus7t
