@@ -25,21 +25,13 @@ TARGET_OTA_ASSERT_DEVICE := OnePlus7T
 endif
 
 ifeq ($(TARGET_DEVICE),oneplus7t)
-TARGET_KERNEL_CONFIG := vendor/omni_oneplus7t_defconfig
-endif
-
-ifeq ($(TARGET_DEVICE),oneplus7t)
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-endif
-
-ifeq ($(TARGET_DEVICE),oneplus7t)
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_oneplus7t
 endif
 
 include device/oneplus/oneplus7pro/BoardConfig.mk
 
 # AVB
-# Enable chain partition for system.
+# Enable chain partition for system and product
 BOARD_AVB_VBMETA_SYSTEM := system product
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048

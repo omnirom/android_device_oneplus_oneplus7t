@@ -22,9 +22,6 @@
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/oneplus/oneplus7t/prebuilt/system,system)
-
-PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/oneplus/oneplus7pro/prebuilt/product,product) \
     $(call find-copy-subdir-files,*,device/oneplus/oneplus7pro/prebuilt/root,recovery/root)
 
@@ -35,6 +32,3 @@ $(call inherit-product, device/oneplus/oneplus7pro/device.mk)
 
 AB_OTA_PARTITIONS += \
     product
-
-PRODUCT_PACKAGES += \
-    libinit_oneplus7t
