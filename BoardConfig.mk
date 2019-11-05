@@ -40,7 +40,6 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
 BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
