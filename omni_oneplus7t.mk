@@ -55,7 +55,6 @@ TARGET_BOOTANIMATION_SIZE := 1080p
 AB_OTA_UPDATER := true
 
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus7t/overlay/device
-DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus7pro/overlay/device
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus7pro/overlay/common
 DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 
