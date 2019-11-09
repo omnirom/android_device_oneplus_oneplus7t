@@ -77,4 +77,6 @@
 
          <string name="config_mainBuiltInDisplayCutoutRectApproximation">M -40,0 L -40,80 L 40,80 L 40,0 Z</string>
 
+        <bool name="config_proxiSensorWakupCheck">true</bool>
+
 </resources>
