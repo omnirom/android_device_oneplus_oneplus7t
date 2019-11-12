@@ -256,10 +256,8 @@ persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 ro.vendor.qti.va_aosp.support=1
 ro.apex.updatable=true
 ro.camera.notify_nfc=0
-ro.boot.project_name=18821
-ro.vendor.boot.project_name=18821
-persist.vendor.sys.fp.fod.location.X_Y=605,2613
-persist.vendor.sys.fp.fod.size.width_height=230,230
+ro.boot.project_name=18865
+ro.vendor.boot.project_name=18865
 persist.vendor.cne.feature=1
 
 persist.sys.camera.preview.size=1920x1080
