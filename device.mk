@@ -31,4 +31,5 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/oneplus/oneplus7pro/device.mk)
 
 AB_OTA_PARTITIONS += \
-    product
+    product \
+    vbmeta_system
