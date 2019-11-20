@@ -272,3 +272,5 @@ persist.vendor.diag.max.size=500
 ro.vibrator.hal.tick.duration=0
 ro.vibrator.hal.click.duration=0
 ro.vibrator.hal.heavyclick.duration=10
+
+persist.fod.night_mode_enabled=false
