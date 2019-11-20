@@ -33,3 +33,7 @@ $(call inherit-product, device/oneplus/oneplus7pro/device.mk)
 AB_OTA_PARTITIONS += \
     product \
     vbmeta_system
+    
+# Fingerprint
+PRODUCT_PACKAGES += \
+    omni.biometrics.fingerprint.inscreen@1.0-service.oneplus7t
