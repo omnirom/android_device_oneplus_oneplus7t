@@ -35,5 +35,5 @@
     <integer name="config_maxVisibleNotificationIcons">5</integer>
     <integer name="config_maxVisibleNotificationIconsWhenDark">6</integer>
 
-    <color name="config_fodColor">#ffffff</color>
+    <color name="config_fodColor">#00ff00</color>
 </resources>
