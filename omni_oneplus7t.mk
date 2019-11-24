@@ -34,21 +34,32 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 BOARD_SUPER_PARTITION_SIZE := 15032385536
-BOARD_SUPER_PARTITION_GROUPS := oneplus_dynamic_partitions
-BOARD_ONEPLUS_DYNAMIC_PARTITIONS_SIZE := 7511998464
-BOARD_ONEPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 7511998464
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
-    vendor \
     product
+
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 PRODUCT_BUILD_PRODUCT_IMAGE  := true
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_PARTITION_SIZE := 973119488
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1291284480
 BOARD_ODMIMAGE_PARTITION_SIZE := 929792
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
+
+# tell update_engine to not change dynamic partition table during updates
+# needed since our qti_dynamic_partitions does not include
+# vendor and odm and we also dont want to AB update them
+TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
+
+# enable to generate super_empy.img if needed to wipe super partition table
+#BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += \
+    vendor \
+    odm
 
 # must be before including omni part
 TARGET_BOOTANIMATION_SIZE := 1080p
