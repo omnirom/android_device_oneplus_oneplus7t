@@ -42,6 +42,7 @@ BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
 BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
 
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += vendor/oneplus/oneplus7t
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_ODM := odm
