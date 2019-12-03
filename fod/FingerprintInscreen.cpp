@@ -38,6 +38,11 @@
 #define HBM_ENABLE_PATH "/sys/class/drm/card0-DSI-1/op_friginer_print_hbm"
 #define DIM_AMOUNT_PATH "/sys/class/drm/card0-DSI-1/dim_alpha"
 
+#define NATIVE_DISPLAY_P3 "/sys/class/drm/card0-DSI-1/native_display_p3_mode"
+#define NATIVE_DISPLAY_SRGB "/sys/class/drm/card0-DSI-1/native_display_customer_srgb_mode"
+#define NATIVE_DISPLAY_NIGHT "/sys/class/drm/card0-DSI-1/night_mode"
+#define NATIVE_DISPLAY_WIDE "/sys/class/drm/card0-DSI-1/native_display_wide_color_mode"
+
 namespace vendor {
 namespace omni {
 namespace biometrics {
@@ -47,6 +52,7 @@ namespace V1_0 {
 namespace implementation {
 
 int dimAmount;
+int wide,p3,srgb,night;
 
 using android::base::GetProperty;
 
@@ -105,6 +111,10 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
+    wide = get(NATIVE_DISPLAY_WIDE, 0);
+    p3 = get(NATIVE_DISPLAY_P3, 0);
+    srgb = get(NATIVE_DISPLAY_SRGB, 0);
+    night = get(NATIVE_DISPLAY_NIGHT, 0);
     this->mVendorDisplayService->setMode(16, 0);
     this->mVendorDisplayService->setMode(17, 0);
     this->mVendorDisplayService->setMode(18, 0);
@@ -112,6 +122,10 @@ Return<void> FingerprintInscreen::onShowFODView() {
     this->mVendorDisplayService->setMode(21, 0);
     this->mVendorDisplayService->setMode(17, 1);
     this->mVendorDisplayService->setMode(19, 0);
+    set(NATIVE_DISPLAY_P3, 0);
+    set(NATIVE_DISPLAY_SRGB, 0);
+    set(NATIVE_DISPLAY_NIGHT, 0);
+    set(NATIVE_DISPLAY_WIDE, 1);
     return Void();
 }
 
@@ -119,6 +133,8 @@ Return<void> FingerprintInscreen::onHideFODView() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     set(HBM_ENABLE_PATH, 0);
+    set(NATIVE_DISPLAY_WIDE, 0);
+
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
     this->mVendorDisplayService->setMode(16, 0);
     this->mVendorDisplayService->setMode(17, 0);
@@ -127,6 +143,11 @@ Return<void> FingerprintInscreen::onHideFODView() {
     this->mVendorDisplayService->setMode(21, 0);
     this->mVendorDisplayService->setMode(16, 1);
     this->mVendorDisplayService->setMode(19, 1);
+
+    set(NATIVE_DISPLAY_WIDE, wide);
+    set(NATIVE_DISPLAY_P3, p3);
+    set(NATIVE_DISPLAY_SRGB, srgb);
+    set(NATIVE_DISPLAY_NIGHT, night);
 
     return Void();
 }
