@@ -272,3 +272,10 @@ persist.vendor.diag.max.size=500
 ro.vibrator.hal.tick.duration=0
 ro.vibrator.hal.click.duration=0
 ro.vibrator.hal.heavyclick.duration=10
+
+# for dolby atmos activity
+# if set to true there is no equalizer under earphones
+#ro.build.eu=true
+
+# oneplus pocket does not work in aod
+persist.sensor.oneplus_pocket_enabled=false
