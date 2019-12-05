@@ -434,6 +434,8 @@ lib/libqvr_eyetracking_plugin.so
 lib/libqvr_cdsp_driver_stub.so
 
 -app/OPSoundTuner/OPSoundTuner.apk
+product/etc/permissions/com.dolby.daxservice.xml
+product/priv-app/daxService/daxService.apk
 
 -app/NxpNfcNci/NxpNfcNci.apk
 -app/NxpSecureElement/NxpSecureElement.apk
