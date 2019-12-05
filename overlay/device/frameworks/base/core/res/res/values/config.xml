@@ -44,7 +44,6 @@
         <item>350</item>
         <item>500</item>
         <item>1000</item>
-        <item>2000</item>
         <item>9000</item>
         <item>15000</item>
         <item>30000</item>
@@ -61,19 +60,18 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>8</item>
-        <item>15</item>
+        <item>4</item>
+        <item>12</item>
         <item>35</item>
         <item>50</item>
         <item>70</item>
         <item>80</item>
         <item>90</item>
-        <item>110</item>
+        <item>100</item>
         <item>125</item>
         <item>180</item>
         <item>250</item>
         <item>300</item>
-        <item>427</item>
     </array>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
