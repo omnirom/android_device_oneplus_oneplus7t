@@ -277,9 +277,6 @@ ro.vibrator.hal.heavyclick.duration=10
 # if set to true there is no equalizer under earphones
 #ro.build.eu=true
 
-# oneplus pocket does not work in aod
-persist.sensor.oneplus_pocket_enabled=false
-
 # 90hz
 ro.surface_flinger.protected_contents=true
 ro.surface_flinger.use_smart_90_for_video=true
