@@ -2,5 +2,6 @@
     "model": "OnePlus 7T",
     "pageUrl":"https://dl.omnirom.org/",
     "make": "OnePlus",
-    "image": "meta/device_image.jpg"
+    "image": "meta/device_image.jpg",
+    "state": "unofficial"
 }
