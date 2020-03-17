@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-#           (C) 2017 The LineageOS Project
+# Copyright (C) 2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,13 +13,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 set -e
 
-# Required!
-DEVICE=oneplus7t
 VENDOR=oneplus
+DEVICE=oneplus7t
 
 INITIAL_COPYRIGHT_YEAR=2019
 
@@ -28,9 +25,9 @@ INITIAL_COPYRIGHT_YEAR=2019
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-CM_ROOT="$MY_DIR"/../../..
+OMNI_ROOT="$MY_DIR"/../../..
 
-HELPER="$CM_ROOT"/vendor/omni/build/tools/extract_utils.sh
+HELPER="$OMNI_ROOT"/vendor/omni/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -38,46 +35,14 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
+setup_vendor "$DEVICE" "$VENDOR" "$OMNI_ROOT"
 
 # Copyright headers and guards
-write_headers "oneplus7t"
+write_headers
 
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
+write_makefiles "$MY_DIR"/proprietary-files-product.txt true
 
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
-
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt
-
-# Qualcomm performance blobs - conditional as well
-# in order to support Cyanogen OS builds
-cat << EOF >> "$PRODUCTMK"
-endif
-
--include vendor/extra/devices.mk
-ifneq (\$(call is-qc-perf-target),true)
-EOF
-
-cat << EOF >> "$ANDROIDMK"
-endif
-
-ifneq (\$(TARGET_HAVE_QC_PERF),true)
-EOF
-
-write_makefiles "$MY_DIR"/proprietary-files-qc-perf.txt
-
-echo "endif" >> "$PRODUCTMK"
-
-cat << EOF >> "$ANDROIDMK"
-
-endif
-
-EOF
-
-# We are done!
+# Finish
 write_footers
-
