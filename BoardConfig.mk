@@ -28,6 +28,10 @@ ifeq ($(TARGET_DEVICE),oneplus7t)
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 endif
 
+ifeq ($(TARGET_DEVICE),oneplus7t)
+DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/framework_manifest.xml
+endif
+
 include device/oneplus/oneplus7pro/BoardConfig.mk
 
 # AVB
