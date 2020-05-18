@@ -33,13 +33,17 @@
 #define OP_DISPLAY_AOD_MODE 8
 #define OP_DISPLAY_NOTIFY_PRESS 9
 #define OP_DISPLAY_SET_DIM 10
+#define OP_DISPLAY_HIDE_AOD 11
 
-// This is not a typo by me. It's by OnePlus.
-#define HBM_ENABLE_PATH "/sys/class/drm/card0-DSI-1/op_friginer_print_hbm"
+#define HBM_ENABLE_PATH "/sys/class/drm/card0-DSI-1/hbm"
+#define HBM_DIM_PATH "/sys/class/drm/card0-DSI-1/hbm_brightness"
 #define DIM_AMOUNT_PATH "/sys/class/drm/card0-DSI-1/dim_alpha"
+#define DC_DIM_PATH "/sys/class/drm/card0-DSI-1/dimlayer_bl_en"
 
 #define NATIVE_DISPLAY_P3 "/sys/class/drm/card0-DSI-1/native_display_p3_mode"
-#define NATIVE_DISPLAY_SRGB "/sys/class/drm/card0-DSI-1/native_display_srgb_color_mode"
+#define NATIVE_DISPLAY_SRGB "/sys/class/drm/card0-DSI-1/native_display_customer_srgb_mode"
+#define NATIVE_DISPLAY_NIGHT "/sys/class/drm/card0-DSI-1/night_mode"
+
 #define NATIVE_DISPLAY_WIDE "/sys/class/drm/card0-DSI-1/native_display_wide_color_mode"
 
 namespace vendor {
@@ -47,11 +51,13 @@ namespace omni {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 int dimAmount;
-int wide,p3,srgb;
+int wide,p3,srgb,night;
+bool dcDimState;
+bool isOneplus7tpro;
 
 using android::base::GetProperty;
 
@@ -76,6 +82,8 @@ static T get(const std::string& path, const T& def) {
 FingerprintInscreen::FingerprintInscreen() {
     this->mVendorFpService = IVendorFingerprintExtensions::getService();
     this->mVendorDisplayService = IOneplusDisplay::getService();
+    std::string device = android::base::GetProperty("ro.product.device", "");
+    isOneplus7tpro = device == "oneplus7tpro";
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
@@ -91,28 +99,38 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
     return Void();
 }
 
+Return<void> FingerprintInscreen::switchHbm(bool enabled) {
+    if (enabled) {
+        set(HBM_ENABLE_PATH, 5);
+    } else {
+        set(HBM_ENABLE_PATH, 0);
+    }
+    return Void();
+}
+
 Return<void> FingerprintInscreen::onPress() {
-    this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-    set(HBM_ENABLE_PATH, 1);
+//    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 2);
+    set(HBM_ENABLE_PATH, 5);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    set(HBM_ENABLE_PATH, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
+//    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 5);
 
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
+    this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
+//    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
     wide = get(NATIVE_DISPLAY_WIDE, 0);
     p3 = get(NATIVE_DISPLAY_P3, 0);
     srgb = get(NATIVE_DISPLAY_SRGB, 0);
+    night = get(NATIVE_DISPLAY_NIGHT, 0);
+
     this->mVendorDisplayService->setMode(16, 0);
     this->mVendorDisplayService->setMode(17, 0);
     this->mVendorDisplayService->setMode(18, 0);
@@ -120,14 +138,24 @@ Return<void> FingerprintInscreen::onShowFODView() {
     this->mVendorDisplayService->setMode(21, 0);
     this->mVendorDisplayService->setMode(17, 1);
     this->mVendorDisplayService->setMode(19, 0);
+
+    dcDimState = get(DC_DIM_PATH, 0);
+    set(DC_DIM_PATH, 0);
+    set(NATIVE_DISPLAY_P3, 0);
+    set(NATIVE_DISPLAY_SRGB, 0);
+    set(NATIVE_DISPLAY_NIGHT, 0);
+    set(NATIVE_DISPLAY_WIDE, 1);
+
+//    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 2);
+
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     set(HBM_ENABLE_PATH, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
+    set(DC_DIM_PATH, dcDimState);
+    set(NATIVE_DISPLAY_WIDE, 0);
+
     this->mVendorDisplayService->setMode(16, 0);
     this->mVendorDisplayService->setMode(17, 0);
     this->mVendorDisplayService->setMode(18, 0);
@@ -139,6 +167,9 @@ Return<void> FingerprintInscreen::onHideFODView() {
     set(NATIVE_DISPLAY_WIDE, wide);
     set(NATIVE_DISPLAY_P3, p3);
     set(NATIVE_DISPLAY_SRGB, srgb);
+    set(NATIVE_DISPLAY_NIGHT, night);
+
+    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     return Void();
 }
 
@@ -180,22 +211,36 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
-    if (brightness > 180) {
-        return 212;
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t suggest) {
+    LOG(INFO) << "dimAmount1 = " << suggest;
+    if ((suggest > 0) && (suggest < 255)) {
+        if (suggest < 127) {
+            dimAmount = 255 - suggest - 28;
+        } else {
+            dimAmount = get(DIM_AMOUNT_PATH, suggest);
+            dimAmount = 255 - dimAmount;
+        }
+    } else {
+        dimAmount = 0;
     }
-    if (brightness > 100) {
-        return 180;
-    }
-    if (brightness > 80) {
-        return 160;
-    }
-    dimAmount = get(DIM_AMOUNT_PATH, 0);
+    LOG(INFO) << "dimAmount2 = " << dimAmount;
     return dimAmount;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
     return false;
+}
+
+Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
+    return true;
+}
+
+Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
+    return 237;
+}
+
+Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
+    return 150;
 }
 
 Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& callback) {
@@ -208,19 +253,19 @@ Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallb
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
-    return 437;
+    return 432;
 }
 
 Return<int32_t> FingerprintInscreen::getPositionY() {
-    return 2052;
+    return 2047;
 }
 
 Return<int32_t> FingerprintInscreen::getSize() {
-    return 208;
+    return 218;
 }
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
