@@ -207,7 +207,7 @@ Return<bool> FingerprintInscreen::shouldBoostBrightness() {
 }
 
 Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
-    return true;
+    return false;
 }
 
 Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
