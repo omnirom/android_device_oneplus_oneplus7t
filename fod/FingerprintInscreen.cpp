@@ -46,7 +46,7 @@ namespace omni {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_1 {
+namespace V1_0 {
 namespace implementation {
 
 int dimAmount;
@@ -87,15 +87,6 @@ Return<void> FingerprintInscreen::onStartEnroll() {
 Return<void> FingerprintInscreen::onFinishEnroll() {
     this->mVendorFpService->updateStatus(OP_FINISH_FP_ENROLL);
 
-    return Void();
-}
-
-Return<void> FingerprintInscreen::switchHbm(bool enabled) {
-    if (enabled) {
-        set(HBM_ENABLE_PATH, 5);
-    } else {
-        set(HBM_ENABLE_PATH, 0);
-    }
     return Void();
 }
 
@@ -206,18 +197,6 @@ Return<bool> FingerprintInscreen::shouldBoostBrightness() {
     return false;
 }
 
-Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
-    return false;
-}
-
-Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
-    return 237;
-}
-
-Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
-    return 150;
-}
-
 Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& callback) {
     {
         std::lock_guard<std::mutex> _lock(mCallbackLock);
@@ -240,7 +219,7 @@ Return<int32_t> FingerprintInscreen::getSize() {
 }
 
 }  // namespace implementation
-}  // namespace V1_1
+}  // namespace V1_0
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics

@@ -36,4 +36,4 @@ AB_OTA_PARTITIONS += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    omni.biometrics.fingerprint.inscreen@1.1-service.oneplus7t
+    omni.biometrics.fingerprint.inscreen@1.0-service.oneplus7t
