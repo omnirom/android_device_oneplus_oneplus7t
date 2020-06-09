@@ -21,7 +21,7 @@
 DEVICE_PATH := device/oneplus/oneplus7t
 
 ifeq ($(TARGET_DEVICE),oneplus7t)
-TARGET_OTA_ASSERT_DEVICE := OnePlus7T
+TARGET_OTA_ASSERT_DEVICE := oneplus7t,OnePlus7T
 endif
 
 ifeq ($(TARGET_DEVICE),oneplus7t)
