@@ -50,6 +50,7 @@ product/framework/vendor.qti.hardware.data.qmi-V1.0-java.jar
 -product/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
 -product/framework/vendor.qti.voiceprint-V1.0-java.jar
 product/lib64/com.qualcomm.qti.ant@1.0.so
+product/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
 product/lib64/com.qualcomm.qti.dpm.api@1.0.so
 product/lib64/com.qualcomm.qti.imscmservice@1.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.0.so
@@ -116,6 +117,7 @@ product/lib64/libGPTEE_system.qti.so
 product/lib64/libQTEEConnector_system.so
 product/lib64/libGPQTEEC_system.qti.so
 product/lib/com.qualcomm.qti.ant@1.0.so
+product/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
 product/lib/com.qualcomm.qti.dpm.api@1.0.so
 product/lib/com.qualcomm.qti.imscmservice@1.0.so
 product/lib/com.qualcomm.qti.imscmservice@2.0.so
