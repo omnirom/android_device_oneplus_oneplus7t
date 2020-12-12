@@ -118,7 +118,10 @@ PLATFORM_SECURITY_PATCH_OVERRIDE := 2020-05-01
 
 TARGET_VENDOR := oneplus
 
-PRODUCT_ADB_KEYS := device/oneplus/oneplus7t/adbkey.pub
+# for bringup to disable secure adb - copy adbkey.pub from ~/.android
+#PRODUCT_ADB_KEYS := device/oneplus/oneplus7t/adbkey.pub
+#PRODUCT_PACKAGES += \
+#    adb_keys
 
 PRODUCT_ENFORCE_RRO_TARGETS := 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS := framework-res
