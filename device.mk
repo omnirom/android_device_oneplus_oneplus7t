@@ -30,7 +30,10 @@ PRODUCT_PACKAGES += fstab.qcom
 PRODUCT_PACKAGES += \
     omni.biometrics.fingerprint.inscreen@1.0-service.oneplus7t \
     vendor.qti.hardware.bluetooth_audio@2.0 \
-    adb_keys
+    adb_keys \
+    remount
+
+PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
 
 $(call inherit-product, device/oneplus/oneplus7pro/device.mk)
 
