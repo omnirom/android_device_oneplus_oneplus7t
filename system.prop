@@ -288,3 +288,5 @@ ro.surface_flinger.supports_background_blur=1
 # for dolby atmos activity
 # if set to true there is no equalizer under earphones
 #ro.build.eu=true
+
+sys.vendor.qti.servicetracker.disable=true
