@@ -25,8 +25,12 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/oneplus/oneplus7pro/prebuilt/product,product) \
     $(call find-copy-subdir-files,*,device/oneplus/oneplus7pro/prebuilt/root,recovery/root)
 
-PRODUCT_COPY_FILES += \
-    device/oneplus/oneplus7t/fstab.qcom:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.qcom
+PRODUCT_PACKAGES += fstab.qcom
+
+PRODUCT_PACKAGES += \
+    omni.biometrics.fingerprint.inscreen@1.0-service.oneplus7t \
+    vendor.qti.hardware.bluetooth_audio@2.0 \
+    adb_keys
 
 $(call inherit-product, device/oneplus/oneplus7pro/device.mk)
 
@@ -34,6 +38,3 @@ AB_OTA_PARTITIONS += \
     product \
     vbmeta_system
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    omni.biometrics.fingerprint.inscreen@1.0-service.oneplus7t

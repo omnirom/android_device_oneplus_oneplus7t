@@ -213,3 +213,23 @@ product/etc/permissions/lpa.xml
 product/etc/permissions/com.dolby.daxservice.xml
 -product/priv-app/daxService/daxService.apk
 
+product/lib/vendor.qti.hardware.radio.qtiradio@2.0.so
+product/lib/vendor.qti.hardware.radio.qtiradio@1.0.so
+product/lib/vendor.qti.hardware.radio.qtiradio@2.2.so
+product/lib/vendor.qti.hardware.radio.qtiradio@2.1.so
+product/lib/vendor.qti.hardware.radio.qtiradio@2.3.so
+product/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
+product/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
+product/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so
+product/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
+product/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so
+
+product/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+product/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+product/lib64/vendor.qti.hardware.btconfigstore@1.0.so
+product/lib/vendor.qti.hardware.btconfigstore@1.0.so
+
+product/bin/dashd
+
+-product/framework/uimremoteserverlibrary.jar
+-product/framework/uimgbalibrary.jar
