@@ -82,6 +82,7 @@ AB_OTA_UPDATER := true
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus7t/overlay/device
 DEVICE_PACKAGE_OVERLAYS += device/oneplus/oneplus7pro/overlay/common
 DEVICE_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
+PRODUCT_PACKAGE_OVERLAYS += vendor/qcom/opensource/commonsys-intf/bluetooth/overlay/qva
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
