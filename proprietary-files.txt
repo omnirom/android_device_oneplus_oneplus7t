@@ -112,7 +112,6 @@ framework/audiosphere.jar
 lib64/libadsprpc_system.so
 lib64/libmdsprpc_system.so
 lib64/libantradio.so
-lib64/libbluetooth_qti.so
 lib64/libcdsprpc_system.so
 lib64/libchromaflash.so
 lib64/libdiag_system.so
@@ -166,7 +165,6 @@ lib64/libxt_native.so
 lib/libadsprpc_system.so
 lib/libmdsprpc_system.so
 lib/libantradio.so
-lib/libbluetooth_qti.so
 lib/libcdsprpc_system.so
 lib/libchromaflash.so
 lib/libdiag_system.so
@@ -279,20 +277,15 @@ lib/libqvr_cam_cdsp_driver_stub.so
 lib/libqvr_eyetracking_plugin.so
 lib/libqvr_cdsp_driver_stub.so
 
--app/OPSoundTuner/OPSoundTuner.apk|8fdf209c60c140ce31124edcae00655798f85f24
-
+#-app/OPSoundTuner/OPSoundTuner.apk
 -app/NxpNfcNci/NxpNfcNci.apk|88df5ea34fa5f915eb0779d56dcb48e52510fbc6
 -app/NxpSecureElement/NxpSecureElement.apk
 -framework/com.nxp.nfc.jar
 etc/permissions/com.nxp.nfc.xml
 lib64/libnxpnfc_nci_jni.so
-lib64/libnxpnfc-nci.so
-lib/libnxpnfc-nci.so
+lib64/libnxpnfc-nci.so|e31ab7b2b282c3b81fd13ab1b40b3cc8d90d8b5b
 etc/nfcee_access.xml
 
--sbin/dashd;rootfs
-
-lib64/libbtconfigstore.so
 
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
@@ -301,7 +294,7 @@ lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 -framework/WfdCommon.jar
 -framework/qcnvitems.jar
 -app/AntHalService/AntHalService.apk
--priv-app/com.qualcomm.location/com.qualcomm.location.apk
+#-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 
 -priv-app/OnePlusCamera/OnePlusCamera.apk
 -priv-app/OnePlusCameraService/OnePlusCameraService.apk
@@ -309,3 +302,23 @@ lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 
 etc/permissions/com.qti.location.sdk.xml
 -framework/com.qti.location.sdk.jar
+
+-priv-app/OPCameraResources/OPCameraResources.apk
+
+lib/libarcsoft_tricam_calibration.so
+lib/libarcsoft_tricam_verification.so
+lib/libarcsoft_calibverify_TriCamera.so
+lib64/libarcsoft_tricam_calibration.so
+lib64/libarcsoft_tricam_verification.so
+lib64/libarcsoft_calibverify_TriCamera.so
+lib64/libcalibverif_jni.so
+lib/libcalibverif_jni.so
+
+-framework/QPerformance.jar|557d4bb4e6009190a9a9df65c4c1fb0c37c2730a
+-framework/UxPerformance.jar|c8bcc41ace1e588ed6e5e90c7c82239eac0fca1b
+
+bin/perfservice
+# op has it in system we want it in product
+bin/dashd
+
+-framework/com.qti.snapdragon.sdk.display.jar
