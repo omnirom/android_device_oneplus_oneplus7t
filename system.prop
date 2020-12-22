@@ -290,3 +290,5 @@ ro.surface_flinger.supports_background_blur=1
 #ro.build.eu=true
 
 sys.vendor.qti.servicetracker.disable=true
+persist.vendor.bt.a2dp.aac_whitelist=false
+
