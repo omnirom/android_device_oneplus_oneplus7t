@@ -19,6 +19,12 @@
   },
   {
     "remote": "omnirom",
+    "repository": "android_device_oneplus_oneplus7pro",
+    "target_path": "device/oneplus/oneplus7pro",
+    "revision": "android-11"
+  },
+  {
+    "remote": "omnirom",
     "repository": "android_vendor_qcom_opensource_packages_apps_Bluetooth",
     "target_path": "vendor/qcom/opensource/commonsys/packages/apps/Bluetooth",
     "revision": "android-11"
