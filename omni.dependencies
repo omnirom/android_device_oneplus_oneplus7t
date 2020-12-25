@@ -15,7 +15,7 @@
     "remote": "omnirom",
     "repository": "android_kernel_oneplus_sm8150",
     "target_path": "kernel/oneplus/sm8150",
-    "revision": "android-10"
+    "revision": "android-11"
   },
   {
     "remote": "omnirom",
