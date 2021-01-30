@@ -1,0 +1,7 @@
+-nfc - fixed - force aosp
+-OpCamera
+-fastchg - fixed
+-2nd sceen fod unlock flickers unlock method e.g. number pad - fixed
+-gesture bar in aod and keyguard
+device_config put systemui nav_bar_handle_show_over_lockscreen 0
+device_config put systemui nav_bar_handle_force_opaque 1
