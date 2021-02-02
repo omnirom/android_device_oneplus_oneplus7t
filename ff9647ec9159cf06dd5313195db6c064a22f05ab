@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ed6e6113_9a7f188f",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2021-02-02T13:48:52Z",
+      "side": 1,
+      "message": "thanks for the tip but for the sake of symetry\nand since it wont matter I keep it :)",
+      "parentUuid": "99476373_8f96a295",
+      "revId": "ff9647ec9159cf06dd5313195db6c064a22f05ab",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3ab67e2_bd39d4ba",
         "filename": "omni_oneplus7t.mk",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "ff9647ec9159cf06dd5313195db6c064a22f05ab",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "805a2153_d81a2272",
+        "filename": "omni_oneplus7t.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2021-02-02T13:48:52Z",
+      "side": 1,
+      "message": "Just here for testing at the moment\n\nBUT just as a second thought you might want to check your logic again 😊\nthis will be true if the filter WITH GAPPS is empty - so NO GAPPS :)\nso no ifneq would be wrong here",
+      "parentUuid": "c3ab67e2_bd39d4ba",
+      "revId": "ff9647ec9159cf06dd5313195db6c064a22f05ab",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
     }
   ]
 }
