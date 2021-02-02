@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99476373_8f96a295",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002322
+      },
+      "writtenOn": "2021-02-02T07:24:51Z",
+      "side": 1,
+      "message": "product and system_ext are useless.\nit\u0027s always vbmeta_system used (you can check in fstab.qcom)",
+      "revId": "ff9647ec9159cf06dd5313195db6c064a22f05ab",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3ab67e2_bd39d4ba",
+        "filename": "omni_oneplus7t.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002322
+      },
+      "writtenOn": "2021-02-02T07:24:51Z",
+      "side": 1,
+      "message": "you need to use this only with build without gapps or microg to add ability to add gapps packages in system and product. You dont need to reserve space for gapps, it\u0027s all include\nSo ifneq",
+      "revId": "ff9647ec9159cf06dd5313195db6c064a22f05ab",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    }
+  ]
+}
