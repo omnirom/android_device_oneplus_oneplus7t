@@ -29,12 +29,8 @@ PRODUCT_PACKAGES += fstab.qcom
 
 PRODUCT_PACKAGES += \
     omni.biometrics.fingerprint.inscreen@1.0-service.oneplus7t \
+    vendor.qti.hardware.bluetooth_audio@2.0 \
     remount
-
-# Bluetooth
-PRODUCT_PACKAGES += BluetoothExt
-PRODUCT_PACKAGES += libbluetooth_qti
-PRODUCT_PACKAGES += vendor.qti.hardware.bluetooth_dun-V1.0-java
 
 PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
 

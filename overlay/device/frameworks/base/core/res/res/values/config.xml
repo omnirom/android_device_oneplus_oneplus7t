@@ -18,23 +18,6 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-    <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
-         The N entries of this array define N + 1 control points as follows:
-         (1-based arrays)
-         Point 1:            (0, value[1]):             lux <= 0
-         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
-         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
-         ...
-         Point N+1: (level[N], value[N+1]):  level[N] < lux
-         The control points must be strictly increasing.  Each control point
-         corresponds to an entry in the brightness backlight values arrays.
-         For example, if lux == level[1] (first element of the levels array)
-         then the brightness will be determined by value[2] (second element
-         of the brightness values array).
-         Spline interpolation is used to determine the auto-brightness
-         backlight values for lux levels between these control points.
-         Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
         <item>10</item>
         <item>20</item>
@@ -48,17 +31,6 @@
         <item>15000</item>
         <item>30000</item>
     </integer-array>
-    <!-- Array of desired screen brightness in nits corresponding to the lux values
-         in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
-         config_screenBrightnessMaximumNits, the display brightness is defined as the measured
-         brightness of an all-white image.
-         If this is defined then:
-            - config_autoBrightnessLcdBacklightValues should not be defined
-            - config_screenBrightnessNits must be defined
-            - config_screenBrightnessBacklight must be defined
-         This array should have size one greater than the size of the config_autoBrightnessLevels
-         array. The brightness values must be non-negative and non-decreasing. This must be
-         overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
         <item>4</item>
         <item>12</item>
@@ -81,29 +53,6 @@
          hysteresis threshold. -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">3000</integer>
-
-    <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
-    <bool name="config_displayBlanksAfterDoze">false</bool>
-
-    <!-- Default color for notification LED is blue. -->
-    <color name="config_defaultNotificationColor">#ff0000ff</color>
-
-    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">false</bool>
-
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option  -->
-    <bool name="config_intrusiveBatteryLed">false</bool>
-
-    <!-- Does device supports fast charging ?  -->
-    <bool name="config_FastChargingLedSupported">false</bool>
-
-    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">false</bool>
-
-    <bool name="config_multiColorNotificationLed">false</bool>
-
-    <!-- Show a custom view for FOD -->
-    <bool name="config_usesFOD">true</bool>
 
     <!-- The default intensity level for haptic feedback. See
          Settings.System.HAPTIC_FEEDBACK_INTENSITY more details on the constant values and
