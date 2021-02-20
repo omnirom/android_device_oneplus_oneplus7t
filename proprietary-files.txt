@@ -314,8 +314,8 @@ lib64/libarcsoft_calibverify_TriCamera.so
 lib64/libcalibverif_jni.so
 lib/libcalibverif_jni.so
 
--framework/QPerformance.jar|557d4bb4e6009190a9a9df65c4c1fb0c37c2730a
--framework/UxPerformance.jar|c8bcc41ace1e588ed6e5e90c7c82239eac0fca1b
+-framework/QPerformance.jar|9cf8f8ac20d949f2a170ac511f69c34df110e40b
+-framework/UxPerformance.jar|0ec531c926cc9ae8eef53c60c7fee688ccf4ec44
 
 bin/perfservice
 # op has it in system we want it in product
