@@ -1,15 +1,15 @@
 
-etc/nfcee_access.xml
+system/etc/nfcee_access.xml
 -system/framework/WfdCommon.jar
 system/framework/qcnvitems.jar
 system/etc/permissions/qcnvitems.xml
 
-etc/permissions/privapp-permissions-qti.xml
-etc/permissions/privapp-permissions-oem-system.xml
-etc/permissions/privapp-permissions-com.quicinc.voice.activation.xml
+system/etc/permissions/privapp-permissions-qti.xml
+system/etc/permissions/privapp-permissions-oem-system.xml
+system/etc/permissions/privapp-permissions-com.quicinc.voice.activation.xml
 
 -system/app/aptxals/aptxals.apk
--system/etc/sysconfig/qti_whitelist.xml
+system/etc/sysconfig/qti_whitelist.xml
 
 system/lib64/vendor.aac.hardware.richtap.vibrator-V1-cpp.so
 system/lib64/vendor.aac.hardware.richtap.vibrator-V2-cpp.so
@@ -27,3 +27,5 @@ system/lib64/vendor.rongcard.hardware.eid@1.0.so
 
 #
 #-system/priv-app/QualcommVoiceActivation/QualcommVoiceActivation.apk;PRESIGNED
+
+-system/priv-app/OnePlusCameraService/OnePlusCameraService.apk
