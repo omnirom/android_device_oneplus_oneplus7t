@@ -1,0 +1,31 @@
+
+
+#============= gmscore_app ==============
+allow gmscore_app adbd_prop:file { getattr map open };
+allow gmscore_app apexd_prop:file { getattr open };
+allow gmscore_app bt_firmware_file:filesystem getattr;
+
+#============= init ==============
+allow init proc_touchpanel:file setattr;
+
+#============= kernel ==============
+allow kernel mnt_vendor_file:file { open read };
+
+#============= nfc ==============
+allow nfc vendor_default_prop:file { getattr map open };
+
+#============= permissioncontroller_app ==============
+allow permissioncontroller_app vendor_perf_service:service_manager find;
+
+#============= untrusted_app ==============
+allow untrusted_app vendor_persist_camera_prop:file { getattr map open read };
+
+#============= untrusted_app_29 ==============
+allow untrusted_app_29 adbd_prop:file { getattr map open };
+allow untrusted_app_29 apexd_prop:file { getattr open };
+allow untrusted_app_29 vendor_default_prop:file { getattr map open };
+allow untrusted_app_29 vendor_persist_camera_prop:file { getattr map open read };
+
+#============= vendor_init ==============
+allow vendor_init block_device:lnk_file setattr;
+allow vendor_init debugfs:file getattr;
