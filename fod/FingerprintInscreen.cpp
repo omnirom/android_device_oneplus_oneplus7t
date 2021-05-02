@@ -91,9 +91,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    if (mIsEnrolling) {
-        this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 8);
-    }
+    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 8);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
     return Void();
