@@ -58,7 +58,6 @@ class FingerprintInscreen : public IFingerprintInscreen {
     sp<IOneplusDisplay> mVendorDisplayService;
     sp<IVendorFingerprintExtensions> mVendorFpService;
     bool mFodCircleVisible;
-    bool mIsEnrolling;
 
     std::mutex mCallbackLock;
     sp<IFingerprintInscreenCallback> mCallback;
