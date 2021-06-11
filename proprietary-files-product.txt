@@ -272,7 +272,6 @@ system_ext/lib/vendor.qti.gnss@3.0.so
 system_ext/lib/vendor.qti.gnss@4.0.so
 system_ext/lib/vendor.qti.hardware.alarm@1.0.so
 system_ext/lib/vendor.qti.hardware.audiohalext@1.0.so
-system_ext/lib/vendor.qti.hardware.capabilityconfigstore@1.0.so
 system_ext/lib/vendor.qti.hardware.cvp@1.0-adapter-helper.so
 system_ext/lib/vendor.qti.hardware.cvp@1.0.so
 system_ext/lib/vendor.qti.hardware.data.cne.internal.api@1.0.so
@@ -396,7 +395,6 @@ system_ext/framework/vendor.qti.data.factory-V1.0-java.jar
 -system_ext/framework/vendor.qti.latency-V2.0-java.jar
 -system_ext/framework/vendor.oneplus.hardware.CameraMDMHIDL-V1.0-java.jar
 -system_ext/framework/com.qualcomm.qti.uceservice-V2.2-java.jar
--system_ext/framework/vendor.qti.hardware.capabilityconfigstore-V1.0-java.jar
 -system_ext/framework/vendor.oneplus.hardware.camera-V1.0-java.jar
 system_ext/framework/com.quicinc.cne.api-V1.1-java.jar
 system_ext/framework/ActivityExt.jar
@@ -610,7 +608,6 @@ system_ext/lib64/vendor.qti.gnss@3.0.so
 system_ext/lib64/vendor.qti.gnss@4.0.so
 system_ext/lib64/vendor.qti.hardware.alarm@1.0.so
 system_ext/lib64/vendor.qti.hardware.audiohalext@1.0.so
-system_ext/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 system_ext/lib64/vendor.qti.hardware.cvp@1.0-adapter-helper.so
 system_ext/lib64/vendor.qti.hardware.cvp@1.0.so
 system_ext/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
