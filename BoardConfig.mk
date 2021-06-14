@@ -21,10 +21,6 @@
 DEVICE_PATH := device/oneplus/oneplus7t
 
 ifeq ($(TARGET_DEVICE),oneplus7t)
-TARGET_OTA_ASSERT_DEVICE := OnePlus7T
-endif
-
-ifeq ($(TARGET_DEVICE),oneplus7t)
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 endif
 
