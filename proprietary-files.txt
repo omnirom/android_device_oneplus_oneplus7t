@@ -6,7 +6,7 @@ system/etc/permissions/qcnvitems.xml
 
 system/etc/permissions/privapp-permissions-qti.xml
 system/etc/permissions/privapp-permissions-oem-system.xml
-system/etc/permissions/privapp-permissions-com.quicinc.voice.activation.xml
+#system/etc/permissions/privapp-permissions-com.quicinc.voice.activation.xml
 
 -system/app/aptxals/aptxals.apk
 system/etc/sysconfig/qti_whitelist.xml
