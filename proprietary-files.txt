@@ -1,7 +1,7 @@
 
 system/etc/nfcee_access.xml
 -system/framework/WfdCommon.jar
-system/framework/qcnvitems.jar
+-system/framework/qcnvitems.jar
 system/etc/permissions/qcnvitems.xml
 
 system/etc/permissions/privapp-permissions-qti.xml
